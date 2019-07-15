@@ -12,10 +12,10 @@ function! s:gObject(...) abort
     let &operatorfunc = matchstr(expand('<sfile>'), '[^. ]*$')
     return 'g@'
   else
-    let [lnum1, lnum2] = s:lines(a:0, a:1) 
+    let [lnum1, lnum2] = <SID>lines(a:0, a:1) 
     let search = input("Run (Leave empty for last search): g/\\v")
     let prompt = lnum1 . "," . lnum2 . "g/\\v" . search . "/". "norm "
-    call s:run_peculiar(prompt)
+    call <SID>run_peculiar(prompt)
   endif
 endfunction
 
@@ -24,10 +24,10 @@ function! s:vObject(...) abort
     let &operatorfunc = matchstr(expand('<sfile>'), '[^. ]*$')
     return 'g@'
   else
-    let [lnum1, lnum2] = s:lines(a:0, a:1) 
+    let [lnum1, lnum2] = <SID>lines(a:0, a:1) 
     let search = input("Run (Leave empty for last search): v/\\v")
-    let prompt = lnum1 . "," . lnum2 . "v/\\v" . search . "/". "norm "
-    call s:run_peculiar(prompt)
+    let prompt = lnum1 . "," . lnum2 . "v/\\v" . search . "/" . "norm "
+    call <SID>run_peculiar(prompt)
   endif
 endfunction
 
@@ -36,10 +36,9 @@ function! s:pObject(...) abort
     let &operatorfunc = matchstr(expand('<sfile>'), '[^. ]*$')
     return 'g@'
   else
-    let [lnum1, lnum2] = s:lines(a:0, a:1) 
-    input("Run (Leave empty for last search): v/\v")
+    let [lnum1, lnum2] = <SID>lines(a:0, a:1) 
     let prompt = lnum1 . "," . lnum2 . "norm "
-    call s:run_peculiar(prompt)
+    call <SID>run_peculiar(prompt)
   endif
 endfunction
 
