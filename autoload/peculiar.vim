@@ -46,6 +46,9 @@ function! peculiar#g_object(...) abort
   else
     let lines = peculiar#lines(a:0, a:1) 
     let search = input("Run (Leave empty for last search): g/\\v")
+    if search == ""
+      let search = @/
+    endif
     call peculiar#run_peculiar(lines, "g/\\v", search)
   endif
 endfunction
@@ -57,6 +60,9 @@ function! peculiar#v_object(...) abort
   else
     let lines = peculiar#lines(a:0, a:1) 
     let search = input("Run (Leave empty for last search): v/\\v")
+    if search == ""
+      let search = @/
+    endif
     call peculiar#run_peculiar(lines, "v/\\v", search)
   endif
 endfunction
@@ -67,7 +73,6 @@ function! peculiar#p_object(...) abort
     return 'g@'
   else
     let lines = peculiar#lines(a:0, a:1) 
-    echo lines
     call peculiar#run_peculiar(lines, "", "")
   endif
 endfunction
