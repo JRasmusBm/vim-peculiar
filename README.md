@@ -9,7 +9,7 @@ decided to wrap it up as a plugin for others to use.
 ## Motivation
 
 I really _love_ the expressiveness of running normal commands, either over
-a range of files or matching a search. The original intent of this plugin was to
+a range of lines or matching a search. The original intent of this plugin was to
 provide a way to run such commands against a text object.
 
 ## Usage
