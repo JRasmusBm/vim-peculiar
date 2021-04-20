@@ -67,7 +67,7 @@ function! peculiar#v_object(...) abort
   endif
 endfunction
 
-function! peculiar#p_object(...) abort
+function! peculiar#n_object(...) abort
   if !a:0
     let &operatorfunc = matchstr(expand('<sfile>'), '[^. ]*$')
     return 'g@'
