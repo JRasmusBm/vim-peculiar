@@ -33,7 +33,9 @@ function! peculiar#run_peculiar(lines, modifier_string, search) abort
   if a:search != ""
     let @/ = a:search
   endif
-  exec prompt . command
+  let to_execute = prompt . command
+  call histadd("cmd", to_execute)
+  exec to_execute
 endfunction
 
 
