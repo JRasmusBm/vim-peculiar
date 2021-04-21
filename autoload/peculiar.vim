@@ -2,9 +2,9 @@ function! peculiar#lines(...) abort
   return line("'[") . "," . line("']")
 endfunction
 
-let b:last_command=""
-let b:last_modifier_string=""
-let b:last_search=""
+let s:last_command=""
+let s:last_modifier_string=""
+let s:last_search=""
 
 function! peculiar#repeat(...) abort
   if !a:0
@@ -12,11 +12,11 @@ function! peculiar#repeat(...) abort
     return 'g@'
   endif
   let lines = peculiar#lines(a:0, a:1)
-  let to_execute = lines . b:last_modifier_string . b:last_search
-  if b:last_modifier_string != ""
+  let to_execute = lines . s:last_modifier_string . s:last_search
+  if s:last_modifier_string != ""
     let to_execute = to_execute . "/"
   endif
-  exec to_execute . "norm " . b:last_command
+  exec to_execute . "norm " . s:last_command
 endfunction
 
 
@@ -27,9 +27,9 @@ function! peculiar#run_peculiar(lines, modifier_string, search) abort
   endif
   let prompt = prompt . "norm "
   let command = input("Run: " . prompt)
-  let b:last_command = command
-  let b:last_modifier_string = a:modifier_string
-  let b:last_search = a:search
+  let s:last_command = command
+  let s:last_modifier_string = a:modifier_string
+  let s:last_search = a:search
   if a:search != ""
     let @/ = a:search
   endif
