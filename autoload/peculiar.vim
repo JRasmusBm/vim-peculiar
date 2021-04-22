@@ -19,7 +19,6 @@ function! peculiar#repeat(...) abort
   exec to_execute . "norm " . s:last_command
 endfunction
 
-
 function! peculiar#run_peculiar(lines, modifier_string, search) abort
   let prompt = a:lines . a:modifier_string . a:search
   if a:modifier_string != ""
@@ -30,14 +29,10 @@ function! peculiar#run_peculiar(lines, modifier_string, search) abort
   let s:last_command = command
   let s:last_modifier_string = a:modifier_string
   let s:last_search = a:search
-  if a:search != ""
-    let @/ = a:search
-  endif
   let to_execute = prompt . command
   call histadd("cmd", to_execute)
   exec to_execute
 endfunction
-
 
 function! peculiar#g_object(...) abort
   if !a:0
@@ -73,6 +68,6 @@ function! peculiar#n_object(...) abort
     return 'g@'
   else
     let lines = peculiar#lines(a:0, a:1) 
-    call peculiar#run_peculiar(lines, "", "")
+    call peculiar#run_peculiar(lines, "g/\\v", ".*")
   endif
 endfunction
