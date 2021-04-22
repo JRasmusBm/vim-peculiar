@@ -68,6 +68,6 @@ function! peculiar#n_object(...) abort
     return 'g@'
   else
     let lines = peculiar#lines(a:0, a:1) 
-    call peculiar#run_peculiar(lines, "g/\\v", ".*")
+    call peculiar#run_peculiar("keeppatterns " . lines, "g/\\v", ".*")
   endif
 endfunction
