@@ -17,7 +17,8 @@ provide a way to run such commands against a text object.
 The plug-in exposes 4 command line utilities,
 
 - `<Plug> PeculiarN`: Takes a text object and a normal command and runs the
-  command against each line of the text object (think `l1,l2 norm`)
+  command against each line of the text object (think `l1,l2 norm` with better
+  support for multi-line edits)
 - `<Plug> PeculiarG`: Takes a text object, a search and a normal command and
   runs the command against each line of the text object **matching** the search
   (think `l1,l2 g/<search>/norm`)
