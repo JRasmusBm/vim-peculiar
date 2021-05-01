@@ -2,6 +2,8 @@
 
 > Not just _normal_ commands.
 
+Video introduction: [Go to YouTube](https://youtu.be/jy3ml6xU_os)
+
 The idea behind the plugin is to provide shortcuts when working with the
 `:norm[al]` command. It has been **so** useful to me that I for the first time
 decided to wrap it up as a plugin for others to use.
@@ -40,24 +42,6 @@ nmap <localleader>r <Plug>PeculiarR
 Each command run updates the command line history and the search commands update
 the search history for easy editing if you make mistakes.
 
-## Showcase
-
-This section contains some examples of usage of the plugin to make sweeping
-changes of varying complexity.
-
-<details>
-    <summary>
-        Changing an array of objects to an array of arrays in TypeScript
-    </summary>
-    <img src="https://i.imgur.com/EsIt28zg.gif" />
-</details>
-
-<details>
-    <summary>
-        Log line number on every line of a function, and repeat for a second one (depends on my snippet <leader>lb which logs a breakpoint).
-    </summary>
-    <img src="https://i.imgur.com/FkzWuNEg.gif" />
-</details>
 ## Attributions
 
 - The first version of this plugin was heavily inspired by
