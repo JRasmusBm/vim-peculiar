@@ -16,6 +16,8 @@ provide a way to run such commands against a text object.
 
 ## Usage
 
+**Please note:** Since making the video I updated the prompt for PeculiarV and PeculiarG. Until I have time to document it, please refer to [Issue #5](https://github.com/JRasmusBm/vim-peculiar/issues/5) for the motivation and [Issue #9](https://github.com/JRasmusBm/vim-peculiar/issues/9) for an explanation of how it works.
+
 The plug-in exposes 4 command line utilities,
 
 - `<Plug> PeculiarN`: Takes a text object and a normal command and runs the
