@@ -2,6 +2,10 @@ function! peculiar#lines(...) abort
   return line("'[") . "," . line("']")
 endfunction
 
+if !exists("g:peculiar#suppress_highlight_n")
+    let g:peculiar#suppress_highlight_n = 0    
+endif
+
 let s:max_depth = 100
 function! peculiar#last_norm_command() abort
   for current_depth in range(s:max_depth)
@@ -53,8 +57,15 @@ function! peculiar#n(...) abort
   else
     let lines = peculiar#lines(a:0, a:1) 
     let s:should_prompt=1
-    call histadd(":", "keeppatterns " . lines . "g/\\v.*/call peculiar#prompt()")
-    call peculiar#prompt()
+    if g:peculiar#suppress_highlight_n == 1
+        let prompt = "keeppatterns " . lines . "g/\\v.*/norm "
+        let n_cmd = input("Run :" . prompt, "")
+        call histadd(":", prompt . n_cmd)
+        execute prompt . n_cmd
+    else
+        call histadd(":", "keeppatterns " . lines . "g/\\v.*/call peculiar#prompt()")
+        call peculiar#prompt()
+    endif
   endif
 endfunction
 

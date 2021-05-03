@@ -42,6 +42,16 @@ nmap <localleader>r <Plug>PeculiarR
 Each command run updates the command line history and the search commands update
 the search history for easy editing if you make mistakes.
 
+## Options
+
+The normal command used in `PeculiarN` will cause the whole selection to be
+highlighted if `incsearch` is turned on. If you want to run `PeculiarN` in
+a function instead (thus suppressing the highlight), you can set.
+
+```vim
+let g:peculiar#surpress_highlight_n = 1
+```
+
 ## Attributions
 
 - The first version of this plugin was heavily inspired by
